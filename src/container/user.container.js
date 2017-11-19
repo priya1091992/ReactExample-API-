@@ -17,8 +17,8 @@ class UserDetail extends Component {
 
   render() {
     const { user, error } = this.props
-
     let mainView = null
+
     if (user) {
       mainView = user.map((value, i) => {
         return (
