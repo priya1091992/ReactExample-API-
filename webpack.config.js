@@ -1,12 +1,12 @@
-var CopyWebpackPlugin = require('copy-webpack-plugin')
 var path = require('path')
 
 var config = {
   entry: './src/main.js',
 
   output: {
-    path: path.join(__dirname, 'dist'),
-    filename: 'index.js',
+    path: __dirname,
+    publicPath: '/',
+    filename: 'bundle.js'
   },
 
   devServer: {
@@ -27,13 +27,7 @@ var config = {
         }
       }
     ],
-  },
-
-  plugins: [
-    new CopyWebpackPlugin([
-      { from: path.join(__dirname, 'index.html'), to: path.join(__dirname, 'dist') },
-    ]),
-  ],
+  }
 }
 
 module.exports = config;
