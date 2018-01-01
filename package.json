@@ -30,7 +30,6 @@
   },
   "devDependencies": {
     "babel-jest": "^21.2.0",
-    "copy-webpack-plugin": "^4.0.1",
     "jest": "^21.2.1",
     "react-test-renderer": "^16.1.1"
   }
