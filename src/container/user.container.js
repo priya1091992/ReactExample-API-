@@ -2,8 +2,24 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import {fetchUser} from '../actions/user.action'
-import Header from './../component/header.component'
-import Footer from './../component/footer.component'
+import Loadable from 'react-loadable';
+
+// dynamic import
+const LoadableFooterComponent = Loadable({
+  loader: () => import('./../component/footer.component'),
+  loading() {
+    return <div>Loading...</div>
+  },
+});
+
+// dynamic import
+const LoadableHeaderComponent = Loadable({
+  loader: () => import('./../component/header.component'),
+  loading() {
+    return <div>Loading...</div>
+  },
+});
+
 
 class UserDetail extends Component {
   constructor(props){
@@ -39,9 +55,9 @@ class UserDetail extends Component {
     }
     return (
       <div style={{'margin': '20px'}}>
-        <Header/>
+        <LoadableHeaderComponent />
         {mainView}
-        <Footer/>
+        <LoadableFooterComponent />
       </div>
     );
   }
